@@ -8,7 +8,7 @@ import requests
 
 class OmniVersions(DashieSampler):
     def __init__(self, *args, **kwargs):
-        self.api_url = 'http://local.globoi.com:2369/api/applications/list/'
+        self.api_url = 'http://api.store.backstage.globoi.com/api/applications/list/'
         DashieSampler.__init__(self, *args, **kwargs)
 
     def name(self):
