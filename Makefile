@@ -11,3 +11,6 @@ setup:
 
 run:
 	@cd pydashie && RELOAD=True pydashie
+
+server:
+	@cd pydashie && pydashie
