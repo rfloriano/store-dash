@@ -1,0 +1,4 @@
+Flask >= 0.10
+Coffeescript >= 1.0.8
+pyScss >= 1.2.0
+requests

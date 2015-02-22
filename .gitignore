@@ -1,0 +1,4 @@
+.project.txt
+.pydevproject.txt
+*.pyc
+*Thumbs.db
