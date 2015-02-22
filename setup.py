@@ -17,6 +17,7 @@ setup(
         'Coffeescript >= 1.0.8',
         'pyScss >= 1.2.0',
         'requests',
+        'trello',
     ],
     entry_points={
       'console_scripts': ['pydashie = pydashie.main:run_sample_app']
