@@ -17,6 +17,9 @@ class OmniVersions(DashieSampler):
         applications = resp.json().get('applications', [])
         items = []
         for app in applications:
+            if 'local' in app.get('url')\
+               or 'local' in app.get('title', '').lower():
+                continue
             url = os.path.join(app.get('url'), 'admin/omni-store/version/')
             try:
                 data = requests.get(url).json()
