@@ -1,5 +1,6 @@
 import os
-from example_samplers import *
+
+from samplers.omni_versions import OmniVersions
 from samplers.trello_sampler import TrelloSampler
 from samplers.jenkins_build_status import JenkinsSampler
 
