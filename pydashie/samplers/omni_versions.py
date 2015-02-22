@@ -21,8 +21,9 @@ class OmniVersions(DashieSampler):
                or 'local' in app.get('title', '').lower():
                 continue
             url = os.path.join(app.get('url'), 'admin/omni-store/version/')
+            print 'Getting version from {0}({1})'.format(app.get('title'), url)
             try:
-                data = requests.get(url).json()
+                data = requests.get(url, timeout=3).json()
             except Exception:
                 data = {}
             items.append({
