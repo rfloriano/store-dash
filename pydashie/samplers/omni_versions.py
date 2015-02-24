@@ -28,7 +28,7 @@ class OmniVersions(DashieSampler):
                or 'stg' in app.get('title', '').lower():
                 proxies = {
                     'http': 'http://proxy.staging.globoi.com:3128',
-                    'http': 'http://proxy.staging.globoi.com:3128',
+                    'https': 'http://proxy.staging.globoi.com:3128',
                 }
             url = os.path.join(app.get('url'), 'admin/omni-store/version/')
             print 'Getting version from {0}({1})'.format(app.get('title'), url)
