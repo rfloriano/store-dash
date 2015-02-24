@@ -16,6 +16,9 @@ class OmniVersions(DashieSampler):
         applications = resp.json().get('applications', [])
         items = []
         for app in applications:
+            if 'local' in app.get('url')\
+               or 'local' in app.get('title', '').lower():
+                continue
             items.append({
                 'label': app.get('title', 'error'),
                 'value': app.get('omni-store', {}).get('version', 'error')
