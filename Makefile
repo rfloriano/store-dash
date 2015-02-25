@@ -13,4 +13,4 @@ run:
 	@cd pydashie && RELOAD=True pydashie
 
 server:
-	@cd pydashie && pydashie
+	@cd pydashie && PORT=80 pydashie

@@ -11,7 +11,7 @@ HOUR = 60 * MINUTE
 
 def run(app, xyzzy):
     samplers = [
-        OmniVersions(xyzzy, HOUR),
+        OmniVersions(xyzzy, 5 * MINUTE),
         TrelloSampler(xyzzy, 10 * MINUTE),
         JenkinsSampler(xyzzy, MINUTE),
         # SynergySampler(xyzzy, 3),
@@ -20,11 +20,12 @@ def run(app, xyzzy):
     ]
 
     reload = os.environ.get('RELOAD', 'False').lower() == 'true'
+    port = int(os.environ.get('PORT', '5000'))
 
     try:
         app.run(debug=True,
                 host='0.0.0.0',
-                port=5000,
+                port=port,
                 threaded=True,
                 use_reloader=reload,
                 use_debugger=True
