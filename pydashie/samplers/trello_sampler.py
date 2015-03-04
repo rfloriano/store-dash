@@ -21,9 +21,10 @@ class TrelloSampler(DashieSampler):
             members = []
             for member_id in card.get('idMembers', []):
                 members.append(self.api.members.get(member_id))
+
+            members = ', '.join([member.get('fullName', 'undef').split(' ')[0]
+                                for member in members])
             items.append({
-                'label': card.get('name', 'undef'),
-                'value': ', '.join([member.get('fullName', 'undef')
-                                    for member in members])
+                'label': '%s: %s ' % (members, card.get('name', 'undef'))
             })
         return {'items': items}
