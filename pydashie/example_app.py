@@ -3,6 +3,7 @@ import os
 from samplers.omni_versions import OmniVersions
 from samplers.trello_sampler import TrelloSampler
 from samplers.jenkins_build_status import JenkinsSampler
+from samplers.backstage_store_versions import BackstageStoreVersions
 
 
 MINUTE = 60
@@ -12,6 +13,7 @@ HOUR = 60 * MINUTE
 def run(app, xyzzy):
     samplers = [
         OmniVersions(xyzzy, 5 * MINUTE),
+        BackstageStoreVersions(xyzzy, 5 * MINUTE),
         TrelloSampler(xyzzy, 10 * MINUTE),
         JenkinsSampler(xyzzy, MINUTE),
         # SynergySampler(xyzzy, 3),
