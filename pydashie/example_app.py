@@ -5,6 +5,7 @@ from samplers.trello_sampler import TrelloSampler
 from samplers.jenkins_build_status import JenkinsSampler
 from samplers.backstage_store_versions import BackstageStoreVersions
 from samplers.healthcheck import Healthcheck
+from samplers.holmes_versions import HolmesVersions
 
 
 MINUTE = 60
@@ -18,6 +19,7 @@ def run(app, xyzzy):
         TrelloSampler(xyzzy, 10 * MINUTE),
         JenkinsSampler(xyzzy, MINUTE),
         Healthcheck(xyzzy, 5 * MINUTE),
+        HolmesVersions(xyzzy, 5 * MINUTE),
         # SynergySampler(xyzzy, 3),
         # BuzzwordsSampler(xyzzy, 2), # 10
         # ConvergenceSampler(xyzzy, 1),
