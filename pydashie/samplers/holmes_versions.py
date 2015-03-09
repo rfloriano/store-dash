@@ -18,6 +18,10 @@ class HolmesVersions(DashieSampler):
         else:
             items.append({'label': 'API', 'value': 'Error'})
 
-        items.append({'label': 'Web', 'value': 'Error'})
+        resp = requests.get('http://holmes.cloud.globoi.com/version.txt')
+        if resp.status_code == 200:
+            items.append({'label': 'Web', 'value': resp.text})
+        else:
+            items.append({'label': 'Web', 'value': 'Error'})
 
         return {'items': items}
