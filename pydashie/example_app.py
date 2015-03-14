@@ -7,6 +7,8 @@ from samplers.backstage_store_versions import BackstageStoreVersions
 from samplers.healthcheck import Healthcheck
 from samplers.holmes_versions import HolmesVersions
 from samplers.holmes_reviews import HolmesReviews
+from samplers.quarter_days import QuarterDays
+from samplers.quarter_goals import QuarterGoals
 
 
 MINUTE = 60
@@ -22,6 +24,8 @@ def run(app, xyzzy):
         Healthcheck(xyzzy, 5 * MINUTE),
         HolmesVersions(xyzzy, 5 * MINUTE),
         HolmesReviews(xyzzy, 5 * MINUTE),
+        QuarterDays(xyzzy, 5 * MINUTE),
+        QuarterGoals(xyzzy, 5 * MINUTE),
         # SynergySampler(xyzzy, 3),
         # BuzzwordsSampler(xyzzy, 2), # 10
         # ConvergenceSampler(xyzzy, 1),
