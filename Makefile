@@ -7,7 +7,7 @@
 
 # install all dependencies (do not forget to create a virtualenv first)
 setup:
-	@pip install -U -e .\[tests\] --process-dependency-links
+	@pip install -U -e . --process-dependency-links
 
 run:
 	@cd pydashie && RELOAD=True pydashie
