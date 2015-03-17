@@ -36,7 +36,7 @@ def javascripts():
 
             'assets/javascripts/jquery.knob.js',
             'assets/javascripts/rickshaw.min.js',
-            #'assets/javascripts/application.coffee',
+            'assets/javascripts/application.coffee',
             'assets/javascripts/app.js',
             #'widgets/clock/clock.coffee',
             'widgets/number/number.coffee',
