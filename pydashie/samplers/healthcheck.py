@@ -19,11 +19,11 @@ class Healthcheck(DashieSampler):
         ]
 
         items = []
-        failed = False
         for label, url in data:
             resp = requests.get(url)
-            if 'WORKING' not in resp:
-                failed = True
-            items.append({'label': label, 'value': resp.text})
+            value = 'WORKING'
+            if 'WORKING' not in resp.text:
+                value = 'Failed'
+            items.append({'label': label, 'value': value})
 
-        return {'items': items, 'failed': failed}
+        return {'items': items}
