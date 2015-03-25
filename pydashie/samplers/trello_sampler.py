@@ -6,7 +6,7 @@ import trello
 class TrelloSampler(DashieSampler):
     def __init__(self, *args, **kwargs):
         key = '00ca4ffbe198c58151dc431f8443b94f'
-        token = '9db5d5330fea052698d6b22a3cfd1e9e4dadd3a3fcf0e4d20b37e21dd325d0f3'
+        token = 'ffda4648a2ea629a706e6e3fc938bb7f3d967fe6db3736b3c10ed33677313ad6'
         self.api = trello.TrelloApi(key)
         self.api.set_token(token)
         DashieSampler.__init__(self, *args, **kwargs)
