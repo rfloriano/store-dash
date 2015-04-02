@@ -21,7 +21,7 @@ def run(app, xyzzy):
         BackstageStoreVersions(xyzzy, 5 * MINUTE),
         TrelloSampler(xyzzy, 10 * MINUTE),
         JenkinsSampler(xyzzy, MINUTE),
-        Healthcheck(xyzzy, 5 * MINUTE),
+        Healthcheck(xyzzy, 1 * MINUTE),
         HolmesVersions(xyzzy, 5 * MINUTE),
         HolmesReviews(xyzzy, 5 * MINUTE),
         QuarterDays(xyzzy, 5 * MINUTE),
