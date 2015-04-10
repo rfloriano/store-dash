@@ -12,8 +12,10 @@ class BackstageStoreVersions(DashieSampler):
 
     def sample(self):
         data = [
-            ('QA', 'http://api.store-qa.backstage.globoi.com/api/version/'),
-            ('Prod', 'http://api.store.backstage.globoi.com/api/version/'),
+            ('QA-API', 'http://api.store-qa.backstage.globoi.com/api/version/'),
+            ('QA-Web', 'http://store-qa.backstage.globoi.com/version'),
+            ('Prod-API', 'http://api.store.backstage.globoi.com/api/version/'),
+            ('Prod-Web', 'http://store.backstage.globoi.com/version'),
         ]
 
         items = []
