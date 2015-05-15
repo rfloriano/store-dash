@@ -23,4 +23,4 @@ class OmniVersions(DashieSampler):
                 'label': app.get('title', 'error'),
                 'value': app.get('omni-store', {}).get('version', 'error')
             })
-        return {'items': items}
+        return {'items': sorted(items, key=lambda k: k['label'].lower())}
