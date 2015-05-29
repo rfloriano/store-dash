@@ -18,12 +18,14 @@ class Healthcheck(DashieSampler):
             ('Prod-Web', 'http://store.backstage.globoi.com/healthcheck/'),
         ]
 
+        failed = False
         items = []
         for label, url in data:
             resp = requests.get(url)
             value = 'WORKING'
             if 'WORKING' not in resp.text:
                 value = 'Failed'
+                failed = True
             items.append({'label': label, 'value': value})
 
-        return {'items': items}
+        return {'items': items, 'failed': failed}

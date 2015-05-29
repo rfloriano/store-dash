@@ -41,6 +41,7 @@ def javascripts():
             #'widgets/clock/clock.coffee',
             'widgets/number/number.coffee',
             'widgets/jenkins_build_status/jenkins_build_status.coffee',
+            'widgets/healthcheck/healthcheck.coffee',
         ]
         nizzle = True
         if not nizzle:
