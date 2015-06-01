@@ -7,6 +7,7 @@ class DashieSampler:
     def __init__(self, app, interval):
         self._app = app
         self._timer = RepeatedTimer(interval, self._sample)
+        self._timer.daemon = True
 
     def stop(self):
         self._timer.stop()
