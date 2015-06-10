@@ -20,8 +20,8 @@ class BackstageStoreVersions(DashieSampler):
 
         items = []
         for label, url in data:
-            resp = requests.get(url)
             try:
+                resp = requests.get(url)
                 version = resp.json().get('version', '')
             except:
                 version = ''

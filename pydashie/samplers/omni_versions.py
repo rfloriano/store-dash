@@ -1,6 +1,7 @@
 from pydashie.dashie_sampler import DashieSampler
 
 import requests
+from requests.exceptions import ConnectionError
 
 
 class OmniVersions(DashieSampler):
@@ -12,7 +13,11 @@ class OmniVersions(DashieSampler):
         return 'omni-versions'
 
     def sample(self):
-        resp = requests.get(self.api_url)
+        try:
+            resp = requests.get(self.api_url)
+        except ConnectionError:
+            return {}
+
         applications = resp.json().get('applications', [])
         items = []
         for app in applications:

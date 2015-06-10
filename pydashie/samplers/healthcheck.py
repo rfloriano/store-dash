@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 
 import requests
+from requests.exceptions import ConnectionError
+
 
 from pydashie.dashie_sampler import DashieSampler
 
@@ -21,11 +23,15 @@ class Healthcheck(DashieSampler):
         failed = False
         items = []
         for label, url in data:
-            resp = requests.get(url)
-            value = 'WORKING'
-            if 'WORKING' not in resp.text:
-                value = 'Failed'
+            try:
+                resp = requests.get(url)
+                value = 'WORKING'
+                if 'WORKING' not in resp.text:
+                    value = 'Failed'
+                    failed = True
+                items.append({'label': label, 'value': value})
+            except ConnectionError:
+                items.append({'label': label, 'value': 'Failed'})
                 failed = True
-            items.append({'label': label, 'value': value})
 
         return {'items': items, 'failed': failed}

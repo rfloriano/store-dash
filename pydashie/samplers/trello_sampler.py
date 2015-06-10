@@ -7,14 +7,20 @@ class TrelloSampler(DashieSampler):
     def __init__(self, *args, **kwargs):
         key = '00ca4ffbe198c58151dc431f8443b94f'
         token = 'ffda4648a2ea629a706e6e3fc938bb7f3d967fe6db3736b3c10ed33677313ad6'
-        self.api = trello.TrelloApi(key)
-        self.api.set_token(token)
-        DashieSampler.__init__(self, *args, **kwargs)
+        try:
+            self.api = trello.TrelloApi(key)
+            self.api.set_token(token)
+            DashieSampler.__init__(self, *args, **kwargs)
+        except:
+            self.api = None
 
     def name(self):
         return 'trello'
 
     def sample(self):
+        if self.api is None:
+            return {}
+
         cards = self.api.lists.get_card('543c0dd47693971e54abf1c2')
         items = []
         for card in cards:

@@ -11,7 +11,10 @@ class HolmesReviews(DashieSampler):
         return 'holmes-reviews'
 
     def sample(self):
-        url = 'http://holmes-api.cloud.globoi.com/reviews-in-last-hour/'
-        data = requests.get(url).json()
-        total = float(data.get('count')) / data.get('ellapsed')
-        return {'text': '%.2f por segundo' % total}
+        try:
+            url = 'http://holmes-api.cloud.globoi.com/reviews-in-last-hour/'
+            data = requests.get(url).json()
+            total = float(data.get('count')) / data.get('ellapsed')
+            return {'text': '%.2f por segundo' % total}
+        except:
+            return {'text': 'Failed'}
