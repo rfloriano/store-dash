@@ -18,9 +18,12 @@ class QuarterGoals(DashieSampler):
         items = []
         for goal in quarter.get('goals', []):
             is_done = goal.get('is_done', False)
+            is_cancelled = goal.get('is_cancelled', False)
             mark = u'☐'
             if is_done:
                 mark = u'✔'
+            elif is_cancelled:
+                mark = u'C'
             items.append({
                 'label': u'{0}: {1}'.format(mark, goal.get('name', 'err')),
             })
