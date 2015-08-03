@@ -31,6 +31,7 @@ class BackstageStoreVersions(DashieSampler):
         data = [
             ('OmniStore', True, 'http://artifactory.globoi.com/artifactory/api/storage/pypi-local/omnistore'),
             ('OmniInstaller', False, 'http://artifactory.globoi.com/artifactory/api/storage/pypi-local/omni-installer'),
+            ('StoreClient', False, 'http://artifactory.globoi.com/artifactory/api/storage/pypi-local/store-client'),
         ]
 
         for label, aux, url in data:
